@@ -11,6 +11,7 @@ class Game {
       this.gameLoopFrequency = 1000 / 60;
       this.bugs = [];
       this.food = [];
+      this.player = new Cat(this.gameScreen, 100, this.width, 100, "../images/cat.jpg");
     }
   
     start() {
