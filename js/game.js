@@ -13,8 +13,8 @@ class Game {
     this.food = [];
     this.player = new Cat(
       this.gameScreen,
-      200,
-      200,
+      395,
+      405,
       200,
       200,
       "../images/cat1.png"

@@ -9,7 +9,7 @@ class Cat {
     this.directionY = 0;
     this.element = document.createElement("img");
     this.element.setAttribute("src", image);
-    // this.element.style.position = "absolute";
+    this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
     this.element.style.top = `${this.top}px`;
