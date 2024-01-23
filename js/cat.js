@@ -8,6 +8,7 @@ class Cat {
     this.directionX = 0;
     this.directionY = 0;
     this.element = document.createElement("img");
+    this.element.setAttribute("src", image);
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
@@ -18,13 +19,8 @@ class Cat {
 
   move() {
     const maxLeft = this.gameScreen.offsetWidth - this.width;
-    const maxTop = this.gameScreen.offsetHeight - this.height;
 
-    if (this.top < maxTop && this.directionY > 0) {
-      this.top += this.directionY;
-    } else if (this.top > 0 && this.directionY < 0) {
-      this.top += this.directionY;
-    } else if (this.left < maxLeft && this.directionX > 0) {
+    if (this.left < maxLeft && this.directionX > 0) {
       this.left += this.directionX;
     } else if (this.left > 0 && this.directionX < 0) {
       this.left += this.directionX;
@@ -34,7 +30,6 @@ class Cat {
   }
 
   updatePosition() {
-    this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
     this.directionX = 0;
     this.directionY = 0;

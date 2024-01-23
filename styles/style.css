@@ -19,12 +19,12 @@ h1 {
 }
 
 #game-start {
-  display: none;
+  display: block;
   padding: 20px 0px;
 }
 
 #game-container {
-  display: none; /* change to flex later */
+  display: flex; 
   width: 100vw;
   padding: 20px 0px;
   justify-content: left;
@@ -33,18 +33,23 @@ h1 {
 
 #game-container p {
   font-weight: bold;
+  color: #06bfb1;
+  display: block;
+text-align: end;
 }
   
 #game-screen {
-  display: none;
+  display: block;
   align-content: center;
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
+  background-image: url(../images/first-screen.png);
+  background-size: cover;
 }
 
 #game-end {
-    display: block;
+    display: none;
 }
 
 #game-start p {
