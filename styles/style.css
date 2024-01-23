@@ -34,8 +34,12 @@ h1 {
 #game-container p {
   font-weight: bold;
   color: #06bfb1;
-  display: block;
-text-align: end;
+  position: absolute;
+  z-index: 1;
+  right: 100px;
+  top: 32px;
+  margin: 0;
+  font-size: 36px;
 }
   
 #game-screen {

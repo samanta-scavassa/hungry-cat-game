@@ -34,4 +34,28 @@ class Cat {
     this.directionX = 0;
     this.directionY = 0;
   }
+
+  eat(eats) {
+    const playerPosition = this.element.getBoundingClientRect();
+    const eatsPosition = eats.element.getBoundingClientRect();
+
+    if (
+      eatsPosition.left < playerPosition.right &&
+      eatsPosition.right > playerPosition.left &&
+      eatsPosition.top < playerPosition.bottom &&
+      eatsPosition.bottom > playerPosition.top
+    ) {
+      eats.digest();
+      return true;
+    }
+    return false;
+  }
+
+  plump(score) {
+    if(score >= 3) {
+        this.element.setAttribute("src", "../images/cat2.png");
+    } else if(score >= 7) {
+        this.element.setAttribute("src", "../images/cat3.png");
+    }
+  }
 }
