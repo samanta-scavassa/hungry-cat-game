@@ -2,7 +2,7 @@ class Game {
     constructor() {
       this.gameScreen = document.querySelector("#game-screen");
       this.gameStartScreen = document.querySelector("#game-start");
-      this.gameScreen = document.querySelector("#game-end");
+      this.gameEndScreen = document.querySelector("#game-end");
       this.width = 600;
       this.height = 600;
       this.score = 0;
@@ -11,13 +11,13 @@ class Game {
       this.gameLoopFrequency = 1000 / 60;
       this.bugs = [];
       this.food = [];
-      this.player = new Cat(this.gameScreen, 100, this.width, 100, "../images/cat.jpg");
+      this.player = new Cat(this.gameScreen, 80, this.width, 80, "../images/cat1.png");
     }
   
     start() {
       this.gameScreen.style.height = `${this.height}px`;
       this.gameScreen.style.width = `${this.width}px`;
-      this.startScreen.style.display = "none";
+      this.gameStartScreen.style.display = "none";
       this.gameScreen.style.display = "block";
       this.gameIntervalId = setInterval(() => {
         this.gameLoop();
