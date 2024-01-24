@@ -16,11 +16,18 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   margin: 64px;
+  color: #33011b;
+  padding: 48px;
 }
 
 #game-start {
   display: block;
-  padding: 20px 0px;
+  background-image: url(../images/start-background.png);
+  background-size: cover;
+  height: 543px;
+  width: 1000px;
+  top: 50%;
+  left: 50%;
 }
 
 #game-container {
@@ -66,27 +73,63 @@ h1 {
 }
 
 #game-end {
-    display: none;
+  display: none;
+  background-image: url(../images/start-background.png);
+  height: 538px;
+  width: 951px;
+  background-size: cover;
 }
 
 #game-start p {
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.arrows-img {
-  width: 150px;
-  margin: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff87c3;
+  text-align: center;
+  line-height: 10px;
 }
 
 body button {
-    font-size: 30px;
+    font-size: 32px;
     font-family: 'Roboto Condensed';
-    background-color: #FF739E;
-    color: #fff;
-    padding: 12px 28px;
-    border: 0;
-    box-shadow: 2px 2px 10px 0 #ff97ba;
-    border-radius: 32px;
-    margin-bottom: 20px;
+    top: 617px;
+    left: 399px;
+    position: absolute;
+    background-color: white;
+    border: 2px solid black;
+    color: #FF739E; 
+    padding: 12px 42px;
+    border-radius: 20px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+#start-button {
+  top: 71px;
+  left: 474px;
+}
+
+#start-instructions {
+  background-color: white;
+  border: 2px solid black;
+  color: #FF739E; 
+  padding: 6px 26px;
+  border-radius: 20px; 
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  margin: 4px 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  width: 524px;
+  height: 50px;
+  top: 442px;
+  left: 28px;
+}
+
+#restart-button {
+  top: 574px;
+  left: 434px;
 }
