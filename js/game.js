@@ -3,9 +3,8 @@ class Game {
     this.gameScreen = document.querySelector("#game-screen");
     this.gameStartScreen = document.querySelector("#game-start");
     this.gameEndScreen = document.querySelector("#game-end");
+    this.gameContainer = document.querySelector("#game-container");
     this.livesCounter = document.querySelector("#lives-counter");
-    this.width = 1000;
-    this.height = 600;
     this.score = 0;
     this.lives = 7;
     this.gamesIsOver = false;
@@ -19,8 +18,8 @@ class Game {
     this.winSound.loop = false;
     this.player = new Cat(
       this.gameScreen,
-      395,
-      412,
+      495,
+      455,
       200,
       200,
       "../images/cat1.png"
@@ -28,8 +27,7 @@ class Game {
   }
 
   start() {
-    this.gameScreen.style.height = `${this.height}px`;
-    this.gameScreen.style.width = `${this.width}px`;
+    this.gameContainer.style.display = "flex";
     this.gameStartScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.gameIntervalId = setInterval(() => {
@@ -46,12 +44,10 @@ class Game {
     const gameScreenRect = this.gameScreen.getBoundingClientRect();
 
     if (Math.random() > 0.98 && this.kibbles.length <= 5) {
-      console.log("kibbles", this.kibbles.length);
       this.kibbles.push(new Kibble(this.gameScreen));
     }
 
     if (Math.random() > 0.98 && this.bugs.length <= 3) {
-      console.log("bugs", this.bugs.length);
       this.bugs.push(new Bug(this.gameScreen));
     }
 
@@ -90,9 +86,8 @@ class Game {
         this.bugs.splice(index, 1);
         bug.element.remove();
         this.lives--;
-        console.log(this.livesCounter.offsetWidth);
         this.livesCounter.style.width = `${
-          this.livesCounter.offsetWidth + 46
+          this.livesCounter.offsetWidth + 47
         }px`;
       }
     });
@@ -104,6 +99,7 @@ class Game {
 
   endGame() {
     this.gameIsOver = true;
+    this.gameContainer.style.display = "none";
 
     if (this.lives === 0) {
       this.h1Tag.innerText = "Game Over";

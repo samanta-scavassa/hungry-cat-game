@@ -5,7 +5,6 @@ window.onload = function () {
   
 
   function startGame() {
-    console.log("start game");
     game = new Game();
     game.start();
     introSound.remove();
@@ -21,10 +20,10 @@ window.onload = function () {
 
     switch (key) {
       case "ArrowLeft":
-        game.player.directionX -= 4;
+        game.player.directionX -= 7;
         return;
       case "ArrowRight":
-        game.player.directionX += 4;
+        game.player.directionX += 7;
         return;
     }
   });

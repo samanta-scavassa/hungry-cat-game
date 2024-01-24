@@ -1,41 +1,51 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:100,300,700');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:100,300,700");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 * {
   font-family: Roboto;
+  box-sizing: border-box;
 }
 
 html,
+main,
 body {
   margin: 0;
   padding: 0;
   text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
-  font-size: 52px;
+  font-size: 71px;
   text-align: center;
   text-transform: uppercase;
-  margin: 64px;
-  color: #33011b;
+  margin: 50px;
+  color: #250038;
   padding: 48px;
+  -webkit-text-stroke: 2px white;
 }
 
 #game-start {
   display: block;
   background-image: url(../images/start-background.png);
   background-size: cover;
-  height: 543px;
-  width: 1000px;
-  top: 50%;
-  left: 50%;
+  height: 680px;
+  width: 1210px;
 }
 
 #game-container {
-  display: flex; 
-  width: 100vw;
-  padding: 20px 0px;
-  justify-content: left;
-  margin: 44px;
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 #game-container p {
@@ -51,16 +61,14 @@ h1 {
 
 #lives-counter {
   background-color: #c2fff7;
-  /* background-color: black; */
   position: absolute;
   z-index: 3;
-  right: 612px;
+  right: 808px;
   top: 16px;
   height: 68px;
   width: 20px;
-  opacity: 1;
 }
-  
+
 #game-screen {
   display: block;
   align-content: center;
@@ -70,66 +78,59 @@ h1 {
   background-image: url(../images/first-screen.png);
   background-size: cover;
   z-index: 1;
+  height: 680px;
+  width: 1210px;
 }
 
 #game-end {
   display: none;
   background-image: url(../images/start-background.png);
-  height: 538px;
-  width: 951px;
+  height: 680px;
+  width: 1210px;
   background-size: cover;
 }
 
 #game-start p {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff87c3;
+  font-size: 17px;
+  color: black;
   text-align: center;
-  line-height: 10px;
+  line-height: 22px;
+  font-family: "Press Start 2P", system-ui;
 }
 
 body button {
-    font-size: 32px;
-    font-family: 'Roboto Condensed';
-    top: 617px;
-    left: 399px;
-    position: absolute;
-    background-color: white;
-    border: 2px solid black;
-    color: #FF739E; 
-    padding: 12px 42px;
-    border-radius: 20px; 
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-}
-
-#start-button {
-  top: 71px;
-  left: 474px;
+  font-size: 32px;
+  font-family: "Roboto Condensed";
+  background-color: #a08cec;
+  border: 2px solid black;
+  color: white;
+  padding: 12px 42px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #start-instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   border: 2px solid black;
-  color: #FF739E; 
+  color: #ff739e;
   padding: 6px 26px;
-  border-radius: 20px; 
+  border-radius: 20px;
   text-decoration: none;
-  display: inline-block;
   position: relative;
-  margin: 4px 2px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 524px;
-  height: 50px;
-  top: 442px;
-  left: 28px;
+  height: 68px;
+  top: 547px;
 }
 
 #restart-button {
-  top: 574px;
-  left: 434px;
+  margin-top: 130px;
 }
