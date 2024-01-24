@@ -35,11 +35,23 @@ h1 {
   font-weight: bold;
   color: #06bfb1;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   right: 100px;
   top: 32px;
   margin: 0;
   font-size: 36px;
+}
+
+#lives-counter {
+  color: #c2fff7;
+  /* background-color: black; */
+  position: absolute;
+  z-index: 3;
+  right: 612px;
+  top: 16px;
+  height: 68px;
+  width: 20px;
+  opacity: 1;
 }
   
 #game-screen {
@@ -50,6 +62,7 @@ h1 {
   position: relative;
   background-image: url(../images/first-screen.png);
   background-size: cover;
+  z-index: 1;
 }
 
 #game-end {
@@ -69,11 +82,11 @@ h1 {
 body button {
     font-size: 30px;
     font-family: 'Roboto Condensed';
-    background-color: #C86DD7;
+    background-color: #FF739E;
     color: #fff;
     padding: 12px 28px;
     border: 0;
-    box-shadow: 2px 2px 10px 0 #9D3BAD;
+    box-shadow: 2px 2px 10px 0 #ff97ba;
     border-radius: 32px;
     margin-bottom: 20px;
 }

@@ -3,6 +3,7 @@ class Game {
     this.gameScreen = document.querySelector("#game-screen");
     this.gameStartScreen = document.querySelector("#game-start");
     this.gameEndScreen = document.querySelector("#game-end");
+    this.livesCounter = document.querySelector("#lives-counter");
     this.width = 1000;
     this.height = 600;
     this.score = 0;
@@ -11,10 +12,11 @@ class Game {
     this.gameLoopFrequency = 1000 / 60;
     this.bugs = [];
     this.kibbles = [];
+    this.h1Tag = document.createElement("h1");
     this.player = new Cat(
       this.gameScreen,
       395,
-      405,
+      412,
       200,
       200,
       "../images/cat1.png"
@@ -32,7 +34,8 @@ class Game {
   }
 
   gameLoop() {
-    this.update();
+    !this.gameOver && this.update();
+    
   }
 
   update() {
@@ -84,6 +87,10 @@ class Game {
         this.bugs.splice(index, 1);
         bug.element.remove();
         this.lives--;
+        console.log(this.livesCounter.offsetWidth);
+        this.livesCounter.style.width = `${
+          this.livesCounter.offsetWidth + 46
+        }px`;
       }
     });
 
@@ -93,10 +100,18 @@ class Game {
   }
 
   endGame() {
+    this.gameIsOver = true;
+
+    if (!this.lives) {
+      this.h1Tag.innerText = "Game Over";
+    } else {
+      this.h1Tag.innerText = "You win!";
+    }
+    this.gameEndScreen.prepend(this.h1Tag);
+
     this.player.element.remove();
     this.bugs.forEach((bug) => bug.element.remove());
     this.kibbles.forEach((kibble) => kibble.element.remove());
-    this.gameIsOver = true;
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
   }

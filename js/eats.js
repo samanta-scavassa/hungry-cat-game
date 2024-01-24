@@ -4,8 +4,8 @@ class Eats {
     this.element = document.createElement("img");
     this.left = Math.random() * 1000;
     this.top = 0;
-    this.width = 80;
-    this.height = 150;
+    this.width = 56;
+    this.height = 56;
     this.obstacleTimeoutId = null;
   }
 
