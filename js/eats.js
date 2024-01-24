@@ -2,7 +2,7 @@ class Eats {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     this.element = document.createElement("img");
-    this.left = Math.random() * 1000;
+    this.left = Math.random() * 1210;
     this.top = 0;
     this.width = 56;
     this.height = 56;
