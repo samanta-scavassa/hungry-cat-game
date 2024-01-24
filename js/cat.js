@@ -15,6 +15,7 @@ class Cat {
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
     this.gameScreen.appendChild(this.element);
+    this.plumpSound = new Audio("../sound/plump.wav")
   }
 
   move() {
@@ -52,11 +53,13 @@ class Cat {
   }
 
   plump(score) {
-    if(score >= 3) {
+    if(score === 3) {
         this.element.setAttribute("src", "../images/cat2.png");
+        this.plumpSound.play();
     } 
-    if(score >= 7) {
+    if(score === 7) {
         this.element.setAttribute("src", "../images/cat3.png");
+        this.plumpSound.play();
     }
   }
 }

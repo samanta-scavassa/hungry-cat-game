@@ -50,7 +50,7 @@ h1 {
 }
 
 #lives-counter {
-  color: #c2fff7;
+  background-color: #c2fff7;
   /* background-color: black; */
   position: absolute;
   z-index: 3;

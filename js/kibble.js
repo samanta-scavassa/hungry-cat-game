@@ -8,6 +8,13 @@ class Kibble extends Eats {
     this.element.style.width = `${this.width}px`;
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
+    this.element.style.zIndex = 4;
     this.gameScreen.appendChild(this.element);
+    this.collectKibbleSound = new Audio("../sound/collect_food.wav");
+  }
+
+  digest() {
+    super.digest();
+    this.collectKibbleSound.play();
   }
 }

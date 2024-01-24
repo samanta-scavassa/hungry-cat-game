@@ -13,6 +13,10 @@ class Game {
     this.bugs = [];
     this.kibbles = [];
     this.h1Tag = document.createElement("h1");
+    this.gameOverSound = document.querySelector("#game-over-sound");
+    this.gameOverSound.loop = false;
+    this.winSound = document.querySelector("#win-sound");
+    this.winSound.loop = false;
     this.player = new Cat(
       this.gameScreen,
       395,
@@ -35,7 +39,6 @@ class Game {
 
   gameLoop() {
     !this.gameOver && this.update();
-    
   }
 
   update() {
@@ -102,10 +105,16 @@ class Game {
   endGame() {
     this.gameIsOver = true;
 
-    if (!this.lives) {
+    if (this.lives === 0) {
       this.h1Tag.innerText = "Game Over";
-    } else {
+      this.gameOverSound.loop = false;
+      this.gameOverSound.play();
+      this.lives = 7;
+    } else if(this.score >= 12) {
       this.h1Tag.innerText = "You win!";
+      this.winSound.loop = false;
+      this.winSound.play();
+      this.score = 0;
     }
     this.gameEndScreen.prepend(this.h1Tag);
 
