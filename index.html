@@ -9,9 +9,11 @@
   <body>
     <main>
       <div id="game-start">
+        <iframe src="./sound/intro-song.mp3" allow="autoplay" style="display:none" id="intro-song">
+        </iframe> 
         <div id="start-instructions">
-        <p>Use left and right arrows to control the cat</p>
-      </div>
+          <p>Use left and right arrows to control the cat</p>
+        </div>
         <br />
         <button id="start-button">Start</button>
       </div>
@@ -27,6 +29,10 @@
         <br />
         <button id="restart-button">Restart</button>
       </div>
+      <audio id="game-over-sound">
+        <source src="./sound/cat-scream.mp3" type="audio/mp3" />
+      </audio>
+      <audio id="win-sound" src="./sound/purr.mp3"></audio>
     </main>
 
     <script type="text/javascript" src="js/game.js"></script>
