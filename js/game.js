@@ -22,7 +22,7 @@ class Game {
       455,
       200,
       200,
-      "../images/cat1.png"
+      "./images/cat1.png"
     );
   }
 
