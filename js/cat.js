@@ -36,17 +36,17 @@ class Cat {
     this.directionY = 0;
   }
 
-  eat(eats) {
-    const playerPosition = this.element.getBoundingClientRect();
-    const eatsPosition = eats.element.getBoundingClientRect();
+  eat(food) {
+    const catRect = this.element.getBoundingClientRect();
+    const foodRect = food.element.getBoundingClientRect();
 
     if (
-      eatsPosition.left < playerPosition.right &&
-      eatsPosition.right > playerPosition.left &&
-      eatsPosition.top < playerPosition.bottom &&
-      eatsPosition.bottom > playerPosition.top
+      foodRect.left < catRect.right &&
+      foodRect.right > catRect.left &&
+      foodRect.top < catRect.bottom &&
+      foodRect.bottom > catRect.top
     ) {
-      eats.digest();
+      food.digest();
       return true;
     }
     return false;

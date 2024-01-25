@@ -1,4 +1,4 @@
-class Eats {
+class Food {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     this.element = document.createElement("img");

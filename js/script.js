@@ -19,10 +19,10 @@ window.onload = function () {
 
     switch (key) {
       case "ArrowLeft":
-        game.player.directionX -= 7;
+        game.cat.directionX -= 7;
         return;
       case "ArrowRight":
-        game.player.directionX += 7;
+        game.cat.directionX += 7;
         return;
     }
   });

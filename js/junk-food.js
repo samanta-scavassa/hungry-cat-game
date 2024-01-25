@@ -1,4 +1,4 @@
-class Bug extends Eats {
+class JunkFood extends Food {
   constructor(gameScreen) {
     super(gameScreen);
     this.element = document.createElement("img");
@@ -10,11 +10,11 @@ class Bug extends Eats {
     this.element.style.left = `${this.left}px`;
     this.element.style.zIndex = 4;
     this.gameScreen.appendChild(this.element);
-    this.collectBugSound = new Audio("./sound/collect_bug.flac")
+    this.collectJunkFoodSound = new Audio("./sound/collect_bug.flac");
   }
 
   digest() {
     super.digest();
-    this.collectBugSound.play();
+    this.collectJunkFoodSound.play();
   }
 }
