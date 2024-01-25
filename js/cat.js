@@ -15,7 +15,7 @@ class Cat {
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
     this.gameScreen.appendChild(this.element);
-    this.plumpSound = new Audio("../sound/plump.wav")
+    this.plumpSound = new Audio("./sound/plump.wav")
   }
 
   move() {

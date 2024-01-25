@@ -2,7 +2,6 @@ window.onload = function () {
   const introSound = document.querySelector("#intro-song");
   const startButton = document.getElementById("start-button");
   let game = null;
-  
 
   function startGame() {
     game = new Game();
