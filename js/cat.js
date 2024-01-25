@@ -54,11 +54,11 @@ class Cat {
 
   plump(score) {
     if(score === 3) {
-        this.element.setAttribute("src", "../images/cat2.png");
+        this.element.setAttribute("src", "./images/cat2.png");
         this.plumpSound.play();
     } 
     if(score === 7) {
-        this.element.setAttribute("src", "../images/cat3.png");
+        this.element.setAttribute("src", "./images/cat3.png");
         this.plumpSound.play();
     }
   }
