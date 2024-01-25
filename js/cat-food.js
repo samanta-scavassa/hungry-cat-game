@@ -1,4 +1,4 @@
-class Kibble extends Eats {
+class CatFood extends Food {
   constructor(gameScreen) {
     super(gameScreen);
     this.element = document.createElement("img");
@@ -10,11 +10,11 @@ class Kibble extends Eats {
     this.element.style.left = `${this.left}px`;
     this.element.style.zIndex = 4;
     this.gameScreen.appendChild(this.element);
-    this.collectKibbleSound = new Audio("./sound/collect_food.wav");
+    this.collectCatFoodSound = new Audio("./sound/collect_food.wav");
   }
 
   digest() {
     super.digest();
-    this.collectKibbleSound.play();
+    this.collectCatFoodSound.play();
   }
 }

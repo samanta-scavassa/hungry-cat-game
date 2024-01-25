@@ -9,14 +9,14 @@ class Game {
     this.lives = 7;
     this.gamesIsOver = false;
     this.gameLoopFrequency = 1000 / 60;
-    this.bugs = [];
-    this.kibbles = [];
+    this.junkFoodArray = [];
+    this.catFoodArray = [];
     this.h1Tag = document.createElement("h1");
     this.gameOverSound = document.querySelector("#game-over-sound");
     this.gameOverSound.loop = false;
     this.winSound = document.querySelector("#win-sound");
     this.winSound.loop = false;
-    this.player = new Cat(
+    this.cat = new Cat(
       this.gameScreen,
       495,
       455,
@@ -40,61 +40,63 @@ class Game {
   }
 
   update() {
-    this.player.move();
-    const gameScreenRect = this.gameScreen.getBoundingClientRect();
+    this.cat.move();
 
-    if (Math.random() > 0.98 && this.kibbles.length <= 5) {
-      this.kibbles.push(new Kibble(this.gameScreen));
-    }
+    this.generateFood(this.catFoodArray, 5, CatFood);
+    this.generateFood(this.junkFoodArray, 3, JunkFood);
 
-    if (Math.random() > 0.98 && this.bugs.length <= 3) {
-      this.bugs.push(new Bug(this.gameScreen));
-    }
-
-    this.kibbles.forEach((kibble, index) => {
-      kibble.move();
-      const kibbleRect = kibble.element.getBoundingClientRect();
-
-      if (kibbleRect.bottom > gameScreenRect.bottom) {
-        this.kibbles.splice(index, 1);
-        kibble.element.style.height = `0px`;
-        kibble.element.style.width = `0px`;
-        kibble.element.remove();
-      }
-
-      if (this.player.eat(kibble)) {
-        this.score++;
-        this.player.plump(this.score);
-        document.querySelector("#score").innerHTML = `00${this.score}`;
-        this.kibbles.splice(index, 1);
-        kibble.element.remove();
-      }
-    });
-
-    this.bugs.forEach((bug, index) => {
-      bug.move();
-      const bugRect = bug.element.getBoundingClientRect();
-
-      if (bugRect.bottom > gameScreenRect.bottom) {
-        this.bugs.splice(index, 1);
-        bug.element.style.height = `0px`;
-        bug.element.style.width = `0px`;
-        bug.element.remove();
-      }
-
-      if (this.player.eat(bug)) {
-        this.bugs.splice(index, 1);
-        bug.element.remove();
-        this.lives--;
-        this.livesCounter.style.width = `${
-          this.livesCounter.offsetWidth + 47
-        }px`;
-      }
-    });
+    this.updateFood(this.catFoodArray);
+    this.updateFood(this.junkFoodArray);
 
     if (this.lives === 0 || this.score >= 12) {
       this.endGame();
     }
+  }
+
+  generateFood(foodArray, maxNumber, foodType) {
+    if (Math.random() > 0.98 && foodArray.length <= maxNumber) {
+      foodArray.push(new foodType(this.gameScreen));
+    }
+  }
+
+  updateFood(foodArray) {
+    const gameScreenRect = this.gameScreen.getBoundingClientRect();
+    const foodToRemove = [];
+
+    foodArray.forEach((food, index) => {
+      food.move();
+      const foodRect = food.element.getBoundingClientRect();
+
+      if (foodRect.bottom > gameScreenRect.bottom) {
+        food.element.style.height = `0px`;
+        food.element.style.width = `0px`;
+        food.element.remove();
+        foodToRemove.push(index);
+      }
+
+      if (food instanceof CatFood) {
+        if (this.cat.eat(food)) {
+          this.score++;
+          this.cat.plump(this.score);
+          document.querySelector("#score").innerHTML = `00${this.score}`;
+          foodToRemove.push(index);
+          food.element.remove();
+        }
+      } else if (food instanceof JunkFood) {
+        if (this.cat.eat(food)) {
+          foodToRemove.push(index);
+          food.element.remove();
+          this.lives--;
+          this.livesCounter.style.width = `${
+            this.livesCounter.offsetWidth + 47
+          }px`;
+        }
+      }
+    });
+
+    foodToRemove.forEach((index) => {
+      foodArray.splice(index, 1);
+    });
   }
 
   endGame() {
@@ -106,7 +108,7 @@ class Game {
       this.gameOverSound.loop = false;
       this.gameOverSound.play();
       this.lives = 7;
-    } else if(this.score >= 12) {
+    } else if (this.score >= 12) {
       this.h1Tag.innerText = "You win!";
       this.winSound.loop = false;
       this.winSound.play();
@@ -114,9 +116,9 @@ class Game {
     }
     this.gameEndScreen.prepend(this.h1Tag);
 
-    this.player.element.remove();
-    this.bugs.forEach((bug) => bug.element.remove());
-    this.kibbles.forEach((kibble) => kibble.element.remove());
+    this.cat.element.remove();
+    this.junkFoodArray.forEach((junkFood) => junkFood.element.remove());
+    this.catFoodArray.forEach((catFood) => catFood.element.remove());
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
   }
