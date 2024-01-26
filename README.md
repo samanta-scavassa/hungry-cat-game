@@ -26,7 +26,7 @@ The objective of the game is to collect as much food as possible without letting
 - `constructor()`: Initializes the game and sets up the game elements.
 - `start()`: Starts the game and displays the game screen.
 - `gameLoop()`: Controls the game loop for updating game elements.
-- `update()`: Updates game elements like player movement, food, and bug positions.
+- `update()`: Updates game elements like player movement, food, and JunkFood positions.
 - `endGame()`: Handles the end of the game, displaying the result.
 
 #### `Cat` Class
@@ -37,21 +37,21 @@ The objective of the game is to collect as much food as possible without letting
 - `eat(eats)`: Detects collisions with kibbles and bugs.
 - `plump(score)`: Changes the cat's appearance based on the score.
 
-#### `Eats` Class
+#### `Food` Class
 
 - `constructor(gameScreen)`: Initializes the base class for food items.
 - `move()`: Handles the movement of food items.
 - `updatePosition()`: Updates the position of food items.
 - `digest()`: Handles the collection of food items.
 
-#### `Kibble` Class
+#### `CatFood` Class
 
-- `constructor(gameScreen)`: Initializes the food (Kibble) class.
-- `digest()`: Overrides the `digest()` method to play a sound when collecting kibble.
+- `constructor(gameScreen)`: Initializes the food (CatFood) class.
+- `digest()`: Overrides the `digest()` method to play a sound when collecting CatFood.
 
-#### `Bug` Class
+#### `JunkFood` Class
 
-- `constructor(gameScreen)`: Initializes the Bug class.
+- `constructor(gameScreen)`: Initializes the JunkFood class.
 - `digest()`: Overrides the `digest()` method to play a sound when collecting bugs.
 
 ## States and States Transitions
@@ -85,13 +85,13 @@ Implement a start method to initiate the game.
 Create a Food class with a constructor method to initialize food properties.
 Implement a move method for food items.
 
-7. Create Subclasses: Kibble and Bug
-Create subclasses Kibble and Bug that receive an element with a specific image in their constructors.
+7. Create Subclasses: CatFood and JunkFood
+Create subclasses CatFood and JunkFood that receive an element with a specific image in their constructors.
 
 8. Implement collision detection and scoring on the game class.
 
 9.  Update Game Class Update Method
-Modify the Game class's update method to check points and lives and make necessary adjustments in the Eats classes (Kibble and Bug).
+Modify the Game class's update method to check points and lives and make necessary adjustments in the Eats classes (CatFood and JunkFood).
 
 10. Add JavaScript and Event Handling
 Include a script in the HTML file to handle player movement with arrow keys.
@@ -105,7 +105,7 @@ Style the game start, game screen, and end containers.
 Style the start button, score, lives elements, and restart button.
 
 13. Add Sound Effects
-Include sound effects in the game for various events and interactions.
+Include sound effects in the game for events and interactions.
 
 
 ## Links
